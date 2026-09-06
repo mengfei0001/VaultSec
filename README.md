@@ -88,6 +88,10 @@ npm run build
 - 建议启用「双因子解锁」（密码 + 指纹）以获得最高安全等级
 - 详细威胁模型与加密架构见 [docs/security-design.md](docs/security-design.md)
 
+## 问题反馈
+<img width="1266" height="1890" alt="douyin" src="https://github.com/user-attachments/assets/2f83a168-b31a-459c-8e4b-47eddce627e8" />
+
+
 ## 许可证
 
 [MIT License](LICENSE) © 2026 mengfei0001
