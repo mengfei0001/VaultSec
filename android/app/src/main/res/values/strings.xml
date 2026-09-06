@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">账号密码保管箱</string>
+    <string name="title_activity_main">账号密码保管箱</string>
+    <string name="package_name">com.vault.secure</string>
+    <string name="custom_url_scheme">com.vault.secure</string>
+</resources>

@@ -1,0 +1,33 @@
+{
+  "name": "vault-secure",
+  "version": "1.0.0",
+  "private": true,
+  "description": "最高安全等级跨平台密码管理器 (Android / Windows / Linux)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "cap:sync": "npm run build && cap sync android",
+    "cap:android": "npm run build && cap add android && cap sync android"
+  },
+  "dependencies": {
+    "@aparajita/capacitor-biometric-auth": "^9.1.2",
+    "@aparajita/capacitor-secure-storage": "^7.1.6",
+    "@capacitor/app": "^7.1.2",
+    "@capacitor/core": "^7.6.9",
+    "@capacitor/filesystem": "^7.1.8",
+    "@capacitor/share": "^7.0.4",
+    "pinia": "^2.3.0",
+    "vue": "^3.5.0",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.6.9",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^7.6.9",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.0"
+  }
+}

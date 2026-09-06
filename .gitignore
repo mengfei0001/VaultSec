@@ -1,0 +1,36 @@
+# ============ 依赖 ============
+node_modules/
+
+# ============ 构建产物 ============
+# Web 构建产物
+dist/
+
+# ============ 日志与临时文件 ============
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ============ IDE ============
+.vscode/
+.idea/
+*.iml
+
+# ============ 生成图标（保留源图 icon.png） ============
+resources/icon-huawei-*.png
+
+# ============ 敏感文件（签名、凭据） ============
+*.jks
+*.keystore
+*.p12
+.env
+.env.*
+!.env.example
+
+# ============ Android 工程 ============
+# Android 工程源码提交，忽略其构建产物与本地配置（详见 android/.gitignore）
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
