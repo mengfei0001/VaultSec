@@ -89,7 +89,7 @@ npm run build
 - 详细威胁模型与加密架构见 [docs/security-design.md](docs/security-design.md)
 
 ## 问题反馈
-<img width="1266" height="1890" alt="douyin" src="https://github.com/user-attachments/assets/2f83a168-b31a-459c-8e4b-47eddce627e8" />
+<img width="200" height="300" alt="douyin" src="https://github.com/user-attachments/assets/2f83a168-b31a-459c-8e4b-47eddce627e8" />
 
 
 ## 许可证
