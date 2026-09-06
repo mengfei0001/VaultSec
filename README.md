@@ -90,4 +90,4 @@ npm run build
 
 ## 许可证
 
-私有项目，保留所有权利。
+[MIT License](LICENSE) © 2026 mengfei0001
