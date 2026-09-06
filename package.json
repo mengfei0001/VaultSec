@@ -9,7 +9,13 @@
     "build": "vite build",
     "preview": "vite preview",
     "cap:sync": "npm run build && cap sync android",
-    "cap:android": "npm run build && cap add android && cap sync android"
+    "cap:android": "npm run build && cap add android && cap sync android",
+    "electron:sync": "npm run build && cap sync @capawesome/capacitor-electron",
+    "electron:dev": "npm run build && cap run @capawesome/capacitor-electron",
+    "electron:pack": "npm run electron:sync && cd electron && npm run pack",
+    "electron:build:win": "npm run electron:sync && cd electron && npm run build && npx capacitor-electron vendor && npx electron-builder --config electron-builder.config.js --win",
+    "electron:build:linux": "npm run electron:sync && cd electron && npm run build && npx capacitor-electron vendor && npx electron-builder --config electron-builder.config.js --linux",
+    "postinstall": "cd electron && npm ci && cd .."
   },
   "dependencies": {
     "@aparajita/capacitor-biometric-auth": "^9.1.2",
@@ -18,6 +24,7 @@
     "@capacitor/core": "^7.6.9",
     "@capacitor/filesystem": "^7.1.8",
     "@capacitor/share": "^7.0.4",
+    "@capawesome/capacitor-electron": "^0.1.1",
     "pinia": "^2.3.0",
     "vue": "^3.5.0",
     "vue-router": "^4.5.0"

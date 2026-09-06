@@ -3,6 +3,7 @@
 跨平台本地优先的密码管理器。所有密码条目以 **AES-256-GCM** 加密存储，主密钥由主密码经 **PBKDF2-SHA256（600,000 次迭代 + 随机盐）** 派生保护，主密码与明文**永不落盘、永不上传**。
 
 - 📱 **Android**（Capacitor 原生壳，支持指纹双因子与快捷解锁）
+- 🖥️ **Windows / Linux**（Electron 桌面版，支持 Windows Hello / fprintd 双因子）
 - 🌐 **Web**（Chrome / Edge / 支持 WebAuthn 的浏览器）
 
 ## 核心安全特性
@@ -33,6 +34,7 @@
 │   ├── views/              # 页面（设置/解锁/列表/详情/首次配置）
 │   └── utils/              # 密码强度、剪贴板、防抖门控等
 ├── android/                # Android 原生工程（Capacitor 生成 + 签名配置）
+├── electron/               # Windows/Linux 桌面工程（@capawesome/capacitor-electron）
 ├── resources/              # 应用图标源图（icon.png）
 ├── docs/                   # 设计文档（安全设计 / 产品规格）
 └── dist/                   # Web 构建产物（勿提交）
@@ -66,6 +68,35 @@ cd android
 ```
 
 签名：Release 构建使用 `android/app/vault-release.jks`（**该文件不入库**，由 `~/.gradle/gradle.properties` 注入 `VAULT_STORE_*` 属性）。
+
+### Windows / Linux（桌面版，基于 Electron）
+
+桌面版使用 `@capawesome/capacitor-electron` 平台，通过 electron-builder 产出安装包。桌面端按 Web 逻辑运行：数据落盘 IndexedDB，双因子解锁走 WebAuthn（Windows Hello / Linux fprintd）。
+
+```bash
+# 构建并同步桌面工程
+npm run electron:sync
+
+# 本地运行桌面版（开发调试）
+npm run electron:dev
+
+# 打包当前操作系统（Windows 上出 NSIS 安装包 + 便携版）
+npm run electron:pack
+
+# 指定平台打包
+npm run electron:build:win      # Windows：VaultSec-<version>-setup-x64.exe + portable
+npm run electron:build:linux    # Linux：VaultSec-<version>-linux-x64.AppImage + .deb（需在 Linux 上执行）
+```
+
+产物目录：`electron/dist/`
+
+> 网络提示（国内环境）：electron-builder 首次构建需从 GitHub 下载 Electron、winCodeSign/NSIS 等，可能超时。可设置镜像后重试：
+>
+> ```powershell
+> $env:ELECTRON_MIRROR = "https://npmmirror.com/mirrors/electron/"
+> $env:ELECTRON_BUILDER_BINARIES_MIRROR = "https://npmmirror.com/mirrors/electron-builder-binaries/"
+> npm run electron:build:win
+> ```
 
 ### Web（静态部署）
 
